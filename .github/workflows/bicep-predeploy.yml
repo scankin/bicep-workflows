@@ -52,9 +52,10 @@ jobs:
             resource_group_exists=$(az group exists --name "${{ inputs.resource_group_name }}")
             echo "Resource Group Name is ${{ inputs.resource_group_name }}"
             if [[ $resource_group_exists == "true" ]]; then
-              echo "Resource Group ${{ inputs.resource_group_name }} already exists, skipping creation."
+              echo "Resource Group ${{ inputs.resource_group_name }} exists"
             else
-              az group create --name "${{ inputs.resource_group_name }}" --location "${{ inputs.location }}"
+              echo "Specified Resource Group does not exist, cancelling deployment"
+              exit 1
             fi
       - name: Validate
         uses: azure/cli@v2
