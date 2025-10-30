@@ -1,5 +1,3 @@
-name: "Module-CoreNetworking-Deploy"
-run-name: Core Networking Deployment ${{ github.run_id }}
 on:
   workflow_call:
     inputs:
@@ -7,6 +5,9 @@ on:
         required: true
         type: string
       deployment_file:
+        required: true
+        type: string
+      deployment_parameters:
         required: true
         type: string
       resource_group_name:
@@ -62,5 +63,6 @@ jobs:
               --resource-group "${{ inputs.resource_group_name }}" \
               --action-on-unmanage detachAll \
               --template-file ${{ inputs.deployment_file }} \
+              --parameters ${{ inputs.deployment_parameters }} \
               --deny-settings-mode None 
       
