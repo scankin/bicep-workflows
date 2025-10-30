@@ -27,7 +27,8 @@ The following inputs are designed to be as unperscriptive as possible. Allowing 
 | Name | Type | Required | Description | 
 | ---- | ---- | ---------| ----------- |
 | location | `string` | Y | The azure region you  wish to  to i.e. `uksouth` |
-| ment_file | `string` | Y |The relative path of the `.bicep` ment file in your repository. |
+| deployment_file | `string` | Y |The path of the `.bicep` file in your repository. |
+| deployment_parameters | `string` | Y | The path of the `.bicepparam` file to use |
 | resource_group_name | `string` | Y | The name of the resource group to  your resources to |
 | ment_name | `string` | Y | The ment name for the ment stack |
 

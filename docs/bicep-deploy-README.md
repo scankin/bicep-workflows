@@ -27,7 +27,8 @@ The following inputs are designed to be as unperscriptive as possible. Allowing 
 | Name | Type | Required | Description | 
 | ---- | ---- | ---------| ----------- |
 | location | `string` | Y | The azure region you  wish to deploy to i.e. `uksouth` |
-| deployment_file | `string` | Y |The relative path of the `.bicep` deployment file in your repository. |
+| deployment_file | `string` | Y |The path of the `.bicep` deployment file in your repository. |
+| deployment_parameters | `string` | Y | The path of the `.bicepparam` file to use |
 | resource_group_name | `string` | Y | The name of the resource group to deploy your resources to |
 | deployment_name | `string` | Y | The deployment name for the deployment stack |
 
