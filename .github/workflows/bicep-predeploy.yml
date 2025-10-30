@@ -47,7 +47,7 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az bicep lint --file ${{ inputs.deployment_file }} 
-      - name: Create Resource Group
+      - name: Check Resource Group
         uses: azure/cli@v2
         with:
           azcliversion: latest
@@ -67,7 +67,7 @@ jobs:
           inlineScript: |
             az stack group validate --name "${{ inputs.deployment_name }}" \
               --resource-group "${{ inputs.resource_group_name }}" \
-              --action-on-unmanage detachAll \
+              --action-on-unmanage deleteResources \
               --template-file ${{ inputs.deployment_file }} \
               --parameters ${{ inputs.deployment_parameters }} \
               --deny-settings-mode None 

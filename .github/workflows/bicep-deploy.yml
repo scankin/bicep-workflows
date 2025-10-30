@@ -61,7 +61,7 @@ jobs:
           inlineScript: |
             az stack group create --name "${{ inputs.deployment_name }}" \
               --resource-group "${{ inputs.resource_group_name }}" \
-              --action-on-unmanage detachAll \
+              --action-on-unmanage deleteResources \
               --template-file ${{ inputs.deployment_file }} \
               --parameters ${{ inputs.deployment_parameters }} \
               --deny-settings-mode None 
